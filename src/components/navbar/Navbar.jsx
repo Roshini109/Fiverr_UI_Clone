@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './navbar.scss'
 
 export default function Navbar() {
+
+  const[active,setActive] = useState(false);
+  const[open,setOpen] = useState(false);
+
+  const isActive =() => {
+    window.scrollY > 0 ? setActive(true) : setActive(false)
+  }
+
+  useEffect(()=>{
+    window.addEventListener("scroll",isActive);
+
+    return () => {
+      window.removeEventListener("scroll",isActive);
+    }
+  },[])
+
+  const currentUser ={
+    id:1,
+    username:"Roshini Dias",
+    isSeller:true
+  }
+
   return (
-    <div className="navbar">
+    <div className={active? "navbar active" : "navbar"}>
         <div className="container">
             <div className="logo">
                 <span className="text">fiverr</span>
@@ -14,10 +36,38 @@ export default function Navbar() {
                 <span>Explore</span>
                 <span>English</span>
                 <span>Sign In</span>
-                <span>Become a Seller</span>
-                <button className="join">Join</button>
+                {!currentUser ?.isSeller && <span>Become a Seller</span>}
+                {!currentUser && <button className="join">Join</button>}
+                {currentUser && (
+                  <div className="user" onClick={()=>setOpen(!open)}>
+                    <img src="/assets/p1.jpg" alt="" />
+                    <span className="username">{currentUser?.username}</span>
+                    {open && <div className="options">
+                      {
+                        currentUser ?.isSeller && (
+                          <>
+                            <span>Gigs</span>
+                            <span>Add New Gig</span>
+                          </>
+                        )
+                      }
+                      <span>Orders</span>
+                      <span>Messages</span>
+                      <span>Logout</span>
+                    </div>}
+                  </div>
+                )}
             </div>
         </div>
+            {
+              active && (
+              <>
+              <hr />
+              <div className="menu">
+                <span>Test</span>
+                <span>Test2</span>
+            </div>
+            </>)}
     </div>
   )
 }
