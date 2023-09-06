@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './navbar.scss'
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
 
@@ -28,7 +29,9 @@ export default function Navbar() {
     <div className={active? "navbar active" : "navbar"}>
         <div className="container">
             <div className="logo">
+              <Link to ="/" className="link">
                 <span className="text">fiverr</span>
+              </Link>
                 <span className="dot">.</span>
             </div>
             <div className="links">
@@ -46,14 +49,14 @@ export default function Navbar() {
                       {
                         currentUser ?.isSeller && (
                           <>
-                            <span>Gigs</span>
-                            <span>Add New Gig</span>
+                            <Link to="/myGigs" className="link">Gigs</Link>
+                            <Link to="/add" className="link">Add New Gig</Link>
                           </>
                         )
                       }
-                      <span>Orders</span>
-                      <span>Messages</span>
-                      <span>Logout</span>
+                      <Link to="/orders" className="link">Orders</Link>
+                      <Link to="/messages" className="link">Messages</Link>
+                      <Link to="/" className="link">Logout</Link>
                     </div>}
                   </div>
                 )}
