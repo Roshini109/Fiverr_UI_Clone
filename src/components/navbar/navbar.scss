@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0, 58, 0);
+    background-color: rgb(0, 28, 0);
     color: white;
     transition: 0.6s all ease;
     position: sticky;
@@ -29,7 +29,7 @@
 
             }
             .dot{
-                color: rgb(171, 221, 171);
+                color: #1dbf73;
             }
         }
         .links{
@@ -83,8 +83,8 @@
                 background-color: transparent;
 
                 &:hover{
-                    background-color:  rgb(171, 221, 171);
-                    border:  rgb(171, 221, 171);
+                    background-color:  #1dbf73;
+                    border:  #1dbf73;
                 }
             }
         }
