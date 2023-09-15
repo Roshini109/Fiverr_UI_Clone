@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './navbar.scss'
 import { Link, useLocation } from 'react-router-dom';
+import Logo from '../logo/Logo';
 
 export default function Navbar() {
 
@@ -30,12 +31,9 @@ export default function Navbar() {
   return (
     <div className={active || pathname!=="/" ? "navbar active" : "navbar"}>
         <div className="container">
-            <div className="logo">
               <Link to ="/" className="link">
-                <span className="text">fiverr</span>
+                <Logo/>
               </Link>
-                <span className="dot">.</span>
-            </div>
             <div className="links">
                 <span>Fiverr Business</span>
                 <span>Explore</span>

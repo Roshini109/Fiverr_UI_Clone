@@ -13,8 +13,6 @@ export default function Slide({children,slidesToShow,arrowsScroll}) {
           {children}
         </Slider>
 
-        
-
         </div>
     </div>
   )
