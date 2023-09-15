@@ -104,6 +104,12 @@ export default function Home() {
           </div>
         </div>
 
+        <Slide slidesToShow={5} arrowsScroll={5}>
+        {cards.map(card=>(
+          <CatCard key={card.id} item={card} />
+        ))}
+      </Slide>
+
     </div>
   )
 }
